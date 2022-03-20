@@ -47,7 +47,7 @@ android {
         applicationId "com.ntech_services.todo_fire"
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         multiDexEnabled true
     }

@@ -19,7 +19,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
   late AuthService _authService;
@@ -47,8 +47,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        leading: AppBackButton(),
-        title: Text("Create Account"),
+        leading: const AppBackButton(),
+        title: const Text("Create Account"),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -64,14 +64,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 //   ),
                 //   child: Image.asset("assets/images/bongalo.png"),
                 // ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
+                const Padding(
+                  padding: EdgeInsets.symmetric(
                     vertical: 20.0,
                     horizontal: 10,
                   ),
                   child: Text("Let’s get to know you better"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 AppInput(
@@ -86,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   obscureText: true,
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 45,
                 ),
 
@@ -119,7 +119,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: "Already have an account? ",
                       style: TextStyle(
                         color: AppColors.primaryGrayText,
