@@ -20,11 +20,12 @@ class TodosService {
     );
   }
 
-  addTodo(
-      {required String title,
-      DateTime? dueDate,
-      required String userId,
-      String? imageUrl}) async {
+  addTodo({
+    required String title,
+    DateTime? dueDate,
+    required String userId,
+    String? imageUrl,
+  }) async {
     TodoModel todo = TodoModel(
       title: title,
       dueDate: dueDate,
