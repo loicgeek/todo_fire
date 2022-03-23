@@ -85,16 +85,38 @@ class _TodosListState extends State<TodosList> {
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       var todo = todos[index];
-                      return CheckboxListTile(
-                        value: todo.done,
-                        onChanged: (value) {
-                          _todosService.updateTodo(id: todo.id!, done: value);
-                        },
-                        title: Text(todo.title),
-                        subtitle: todo.dueDate != null
-                            ? Text(
-                                DateFormat('EEE, M/d/y').format(todo.dueDate!))
-                            : null,
+                      return Row(
+                        children: [
+                          if (todo.imageUrl != null)
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: NetworkImage(todo.imageUrl!),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          Expanded(
+                            child: CheckboxListTile(
+                              value: todo.done,
+                              onChanged: (value) {
+                                _todosService.updateTodo(
+                                    id: todo.id!, done: value);
+                              },
+                              title: Text(todo.title),
+                              subtitle: todo.dueDate != null
+                                  ? Text(DateFormat('EEE, M/d/y')
+                                      .format(todo.dueDate!))
+                                  : null,
+                            ),
+                          ),
+                        ],
                       );
                     },
                     itemCount: todos.length,

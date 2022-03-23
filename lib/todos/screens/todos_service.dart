@@ -20,15 +20,16 @@ class TodosService {
     );
   }
 
-  addTodo({
-    required String title,
-    DateTime? dueDate,
-    required String userId,
-  }) async {
+  addTodo(
+      {required String title,
+      DateTime? dueDate,
+      required String userId,
+      String? imageUrl}) async {
     TodoModel todo = TodoModel(
       title: title,
       dueDate: dueDate,
       userId: userId,
+      imageUrl: imageUrl,
     );
     return await todos.add(todo);
   }
